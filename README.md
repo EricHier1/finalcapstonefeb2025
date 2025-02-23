@@ -1,13 +1,13 @@
 ---
 title: Netflix Recommendation App
 emoji: 🍿
-colorFrom: red
-colorTo: black
+colorFrom: blue
+colorTo: red
 sdk: docker
 python_version: "3.12"
 app_port: 7860
 pinned: false
-short_description: "A Flask app for Netflix title recommendations using cosine similarity."
+short_description: "Netflix title recommendations using cosine similarity."
 tags: ["recommendation", "netflix", "flask", "cosine-similarity", "docker"]
 ---
 
@@ -130,3 +130,11 @@ docker run -p 7860:7860 my-recommend-app
 ```
 
 access app at http://0.0.0.0:7860
+
+#### Run with gunicorn
+```sh
+gunicorn -w 2 -b 0.0.0.0:7860 recommend_app:app
+```
+
+#### Just view online (easiest)
+https://huggingface.co/spaces/erichier/finalcapstone

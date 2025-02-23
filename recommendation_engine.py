@@ -50,7 +50,7 @@ def load_and_preprocess_data(csv_file="netflix_titles.csv"):
         logger.error(f"Error loading data from {csv_file}: {str(e)}")
         raise Exception(f"Error loading data: {str(e)}")
 
-def build_or_load_model(df, cache_file="cosine_sim_cache.pkl"):
+def build_or_load_model(df, cache_file = "/tmp/cosine_sim_cache.pkl"):
     """Builds or loads TF-IDF matrix and cosine similarity, with caching."""
     if os.path.exists(cache_file):
         try:

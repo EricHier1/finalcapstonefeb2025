@@ -16,8 +16,6 @@ def normalize_title(title):
 # Configure logging once
 logging.basicConfig(
     level=logging.INFO,
-    filename="app.log",
-    filemode="a",
     format="%(asctime)s - %(levelname)s - %(message)s"
 )
 logger = logging.getLogger(__name__)
@@ -27,7 +25,7 @@ app = Flask(__name__, static_folder='static')
 # Load data and model at startup
 try:
     df = load_and_preprocess_data("netflix_titles.csv")
-    _, cosine_sim_matrix, title_to_index = build_or_load_model(df, "cosine_sim_cache.pkl")
+    _, cosine_sim_matrix, title_to_index = build_or_load_model(df, "/tmp/cosine_sim_cache.pkl")
     logger.info("Application started successfully with data and model loaded.")
 except Exception as e:
     logger.error(f"Startup failed: {str(e)}")
@@ -132,5 +130,9 @@ def get_visualizations():
         logger.error(f"Visualization error: {str(e)}")
         return jsonify({"message": f"Error generating visualizations: {str(e)}"}), 500
 
+# if __name__ == "__main__":
+#     app.run(debug=False, host="0.0.0.0", port=7860)
+
 if __name__ == "__main__":
-    app.run(debug=False, host="0.0.0.0", port=7860)
+    from gunicorn.app.wsgiapp import run
+    run()
