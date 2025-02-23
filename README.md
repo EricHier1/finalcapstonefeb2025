@@ -109,3 +109,11 @@ deactivate
 ```sh
 venv\Scripts\deactivate
 ```
+#### DOCKER Deployment (EASY MODE)
+
+```sh
+docker build -t my-recommend-app .
+docker run -p 7860:7860 my-recommend-app
+```
+
+access app at http://0.0.0.0:7860
