@@ -133,4 +133,4 @@ def get_visualizations():
         return jsonify({"message": f"Error generating visualizations: {str(e)}"}), 500
 
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=5020)
+    app.run(debug=False, host="0.0.0.0", port=7860)
