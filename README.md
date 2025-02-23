@@ -4,10 +4,7 @@ emoji: 🍿
 colorFrom: red
 colorTo: black
 sdk: docker
-sdk_version: "{{sdkVersion}}"
-app_file: recommend_app.py
 pinned: false
-app_port: 7860
 ---
 # Netflix Content-Based Recommender
 
