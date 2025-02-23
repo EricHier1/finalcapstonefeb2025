@@ -1,3 +1,11 @@
+---
+title: Netflix Recommendation App
+emoji: 🍿
+colorFrom: red
+colorTo: black
+sdk: docker
+app_port: 7860
+---
 # Netflix Content-Based Recommender
 
 A Flask-based web application that provides personalized recommendations for Netflix content using a content-based filtering approach.
